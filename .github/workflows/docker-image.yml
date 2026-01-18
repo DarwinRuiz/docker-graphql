@@ -23,8 +23,12 @@ jobs:
         DOCKER_HUB_USER: ${{ secrets.DOCKER_HUB_USER }}
         DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
       run: |
-        echo "Starting login"
         docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
-        echo "Ending login"
-    # - name: Build the Docker image
-    #   run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+
+    - name: Build docker image
+      run: |
+        docker build -t darwinruiz/docker-graphql:0.0.1 .
+
+    - name: Push docker image
+      run: |
+        docker push darwinruiz/docker-graphql:0.0.1 .
