@@ -31,4 +31,4 @@ jobs:
 
     - name: Push docker image
       run: |
-        docker push darwinruiz/docker-graphql:0.0.1 .
+        docker push darwinruiz/docker-graphql:0.0.1
